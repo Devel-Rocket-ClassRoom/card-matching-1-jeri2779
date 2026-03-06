@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using System.Reflection;
 using System.Threading.Channels;
 //테스트
@@ -14,6 +15,31 @@ Board board = new Board();
 while (true)
 {
     board.Play();
+
+    bool isPlayAgain = false;
+    while (true)
+    {
+
+        Console.WriteLine();
+        Console.WriteLine("새 게임을 하시겠습니까?(Y/N): ");
+        string Y = Console.ReadLine();
+        if (Y == "Y")
+        {
+            
+            isPlayAgain = true;
+            break;
+        }
+        else if (Y == "N")
+        {
+            Console.WriteLine("게임을 종료합니다.");
+            break;
+        }
+    }
+
+    if (!isPlayAgain)
+    {
+        break;
+    }
 }
 
 

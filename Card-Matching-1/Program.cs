@@ -17,7 +17,10 @@ while (true)
     Difficulty difficulty;
     while (true)
     {
-        Console.WriteLine("난이도를 선택하세요: 1. Easy 2. Normal 3. Hard");
+        Console.WriteLine("=== 카드 짝 맞추기 게임 ===");
+        Console.WriteLine();
+        Console.WriteLine("난이도를 선택하세요: \n 1. 쉬움 (2x4)\n 2. 보통 (4x4)\n 3. 어려움 (4x6)");
+        Console.Write("선택: ");
         string input = Console.ReadLine();
         if (input == "1")
         {
@@ -36,6 +39,7 @@ while (true)
         }
         else
             Console.WriteLine("잘못된 입력입니다. 다시 입력해주세요.");
+
     }
     Board board = new Board(difficulty);
     GameState state = board.Play();

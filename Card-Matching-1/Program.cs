@@ -303,9 +303,9 @@ class Board
 
     //예외 처리 및 유효성 검사
     bool TryGetValidInput(string prompt, // 입력 프롬프트
-         out int row, out int col, // 행과 열을 반환하는 out 매개변수
-         int excludeRow = -1, // 첫 번째 카드의 행을 제외하는 매개변수(기본값 -1)
-         int excludeCol = -1)// 첫 번째 카드의 열을 제외하는 매개변수(기본값 -1)
+         out int row, out int col, // 행,열 출력
+         int excludeRow = -1, // 첫 번째 카드의 행 중복 체크
+         int excludeCol = -1)
     {
         row = -1; col = -1;
         Console.Write(prompt);
@@ -313,9 +313,9 @@ class Board
 
         if (input.Length != 2 ||// 입력이 2개X
             !int.TryParse(input[0], out row) ||// 행이 숫자X
-            !int.TryParse(input[1], out col) ||// 열이 숫자X
+            !int.TryParse(input[1], out col) || 
             row < 1 || row > rows ||// 행X
-            col < 1 || col > cols)// 열X
+            col < 1 || col > cols) 
             return false;// 유효X
 
         row--; col--;

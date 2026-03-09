@@ -278,15 +278,17 @@ class Board
         string[] input = Console.ReadLine().Split(' ');
 
         if (input.Length != 2 ||// 입력이 2개가 아니거나
-            !int.TryParse(input[0], out row) ||// 행이 숫자가 아니거나
-            !int.TryParse(input[1], out col) ||// 열이 숫자가 아니거나
-            row < 1 || row > rows || col < 1 || col > cols)// 행과 열이 1~4 범위를 벗어나거나
-            return false;// 유효하지 않은 입력 반환
+            !int.TryParse(input[0], out row) ||// 행이 숫자X
+            !int.TryParse(input[1], out col) ||// 열이 숫자X
+            row < 1 || row > rows ||// 행이 유효한 범위를 벗어나거나
+            col < 1 || col > cols)// 열이 유효한 범위X
+            return false;// 유효하지 않은 입력X
 
         row--; col--;
 
-        if (isFlipped[row, col]) return false;// 이미 뒤집힌 카드 선택 방지
-        if (row == excludeRow && col == excludeCol) return false;// 첫 번째 카드와 같은 위치 선택 방지
+        if (isFlipped[row, col]) return false;// 이미 뒤집힌 카드 선택X
+        if (row == excludeRow &&
+            col == excludeCol) return false;// 첫 번째 카드와 같은 위치 선택X
         return true;// 유효한 입력 반환
     }
 

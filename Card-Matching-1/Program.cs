@@ -62,6 +62,9 @@ while (true)
     else
     {
         Console.WriteLine("잘못된 입력입니다. ");
+        Thread.Sleep(500);
+        Console.Clear();    
+        
         
     }
 }
@@ -142,10 +145,10 @@ class Card
 
 class Board
 {
-    protected int[,] numbers;//카드의 숫자를 저장
-    protected bool[,] isFlipped;//뒤집힌 여부를 저장
-    protected int rows;//행  
-    protected int cols;//열
+    private int[,] numbers;//카드의 숫자를 저장
+    private bool[,] isFlipped;//뒤집힌 여부를 저장
+    private int rows;//행  
+    private int cols;//열
     private int tryCount = 0;
     private int findCount = 0;
     private int MaxTryCount = 1;
@@ -194,6 +197,7 @@ class Board
             Console.WriteLine("=== 게임 오버! ===");
             Console.WriteLine("시도 횟수를 모두 사용했습니다.");
             Console.WriteLine($"찾은 쌍: {findCount}/{MaxFindCount}");
+            
         }
     }
 

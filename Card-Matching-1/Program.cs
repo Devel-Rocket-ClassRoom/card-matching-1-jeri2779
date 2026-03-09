@@ -142,8 +142,8 @@ class Card
 
 class Board
 {
-    protected int[,] numbers;//카드의 숫자를 저장하는 2차원 배열
-    protected bool[,] isFlipped;//카드가 뒤집혔는지 여부를 저장하는 2차원 배열
+    protected int[,] numbers;//카드의 숫자를 저장
+    protected bool[,] isFlipped;//뒤집힌 여부를 저장
     protected int rows;//행  
     protected int cols;//열
     private int tryCount = 0;

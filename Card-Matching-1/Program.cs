@@ -62,44 +62,13 @@ while (true)
     else
     {
         Console.WriteLine("잘못된 입력입니다. ");
-        Thread.Sleep(500);
+        Thread.Sleep(1500);
         Console.Clear();    
         
         
     }
 }
-
-//void InitializeSelect()
-//{
-//    while (true)
-//    {
-//        Difficulty difficulty;
-//        Console.WriteLine("=== 카드 짝 맞추기 게임 ===");
-//        Console.WriteLine();
-//        Console.WriteLine("난이도를 선택하세요: \n 1. 쉬움 (2x4)\n 2. 보통 (4x4)\n 3. 어려움 (4x6)");
-//        Console.Write("선택: ");
-//        string input = Console.ReadLine();
-//        if (input == "1")
-//        {
-//            difficulty = Difficulty.Easy;
-//            break;
-//        }
-//        else if (input == "2")
-//        {
-//            difficulty = Difficulty.Normal;
-//            break;
-//        }
-//        else if (input == "3")
-//        {
-//            difficulty = Difficulty.Hard;
-//            break;
-//        }
-//        else
-//            Console.WriteLine("잘못된 입력입니다. 다시 입력해주세요.");
-//    }
-//}
-
-
+ 
 
 enum GameState
 {
@@ -115,9 +84,6 @@ enum Difficulty
     Normal,
     Hard
 }
-
-
-
 
 
 class Card
@@ -145,7 +111,7 @@ class Card
 
 class Board
 {
-    private int[,] numbers;//카드의 숫자를 저장
+    private int[,] numbers;//}카드의 숫자를 저장
     private bool[,] isFlipped;//뒤집힌 여부를 저장
     private int rows;//행  
     private int cols;//열
@@ -215,7 +181,7 @@ class Board
 
 
 
-    void InitializeBoard()//보드 초기화
+    void InitializeBoard()//보드 카드 및 상태 삽입
     {
 
 
@@ -317,7 +283,7 @@ class Board
 
         if (input.Length != 2 ||// 입력이 2개X
             !int.TryParse(input[0], out row) ||// 행이 숫자X
-            !int.TryParse(input[1], out col) || 
+            !int.TryParse(input[1], out col) ||
             row < 1 || row > rows ||// 행X
             col < 1 || col > cols) 
             return false;// 유효X

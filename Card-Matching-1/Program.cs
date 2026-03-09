@@ -46,23 +46,24 @@ while (true)
     board.PrintResult(state);
 
     Console.WriteLine();
-        Console.WriteLine("새 게임을 하시겠습니까?(Y/N): ");
-        string Y = Console.ReadLine();
-        string N = Console.ReadLine();
-        if (Y == "Y")
-        {
-            //Console.WriteLine("카드를 섞는중 . . . ");
-            //Thread.Sleep(1500);
-            //board = new Board(difficulty);
-            continue;//ln 20
-        }
-        else if (N == "N")
-        {
-            Console.WriteLine("게임을 종료합니다.");
-            Thread.Sleep(1500);
-            break;
-        }
-    
+    Console.WriteLine("새 게임을 하시겠습니까?(Y/N): ");
+    string input2 = Console.ReadLine();
+    if (input2 == "Y")
+    {
+        continue;
+    }
+    else if (input2 == "N")
+    {
+        Console.WriteLine("게임을 종료합니다.");
+        Thread.Sleep(1500);
+        break;
+    }
+    else
+    {
+        Console.WriteLine("잘못된 입력입니다. 게임을 종료합니다.");
+        Thread.Sleep(1500);
+        break;
+    }
 }
 
 

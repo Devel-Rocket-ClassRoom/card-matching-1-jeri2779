@@ -58,13 +58,43 @@ while (true)
         Thread.Sleep(1500);
         break;
     }
+     
     else
     {
-        Console.WriteLine("잘못된 입력입니다. 게임을 종료합니다.");
-        Thread.Sleep(1500);
-        break;
+        Console.WriteLine("잘못된 입력입니다. ");
+        
     }
 }
+
+//void InitializeSelect()
+//{
+//    while (true)
+//    {
+//        Difficulty difficulty;
+//        Console.WriteLine("=== 카드 짝 맞추기 게임 ===");
+//        Console.WriteLine();
+//        Console.WriteLine("난이도를 선택하세요: \n 1. 쉬움 (2x4)\n 2. 보통 (4x4)\n 3. 어려움 (4x6)");
+//        Console.Write("선택: ");
+//        string input = Console.ReadLine();
+//        if (input == "1")
+//        {
+//            difficulty = Difficulty.Easy;
+//            break;
+//        }
+//        else if (input == "2")
+//        {
+//            difficulty = Difficulty.Normal;
+//            break;
+//        }
+//        else if (input == "3")
+//        {
+//            difficulty = Difficulty.Hard;
+//            break;
+//        }
+//        else
+//            Console.WriteLine("잘못된 입력입니다. 다시 입력해주세요.");
+//    }
+//}
 
 
 
@@ -281,16 +311,16 @@ class Board
         Console.Write(prompt);
         string[] input = Console.ReadLine().Split(' ');
 
-        if (input.Length != 2 ||// 입력이 2개가 아니거나
+        if (input.Length != 2 ||// 입력이 2개X
             !int.TryParse(input[0], out row) ||// 행이 숫자X
             !int.TryParse(input[1], out col) ||// 열이 숫자X
-            row < 1 || row > rows ||// 행이 유효한 범위를 벗어나거나
-            col < 1 || col > cols)// 열이 유효한 범위X
-            return false;// 유효하지 않은 입력X
+            row < 1 || row > rows ||// 행X
+            col < 1 || col > cols)// 열X
+            return false;// 유효X
 
         row--; col--;
 
-        if (isFlipped[row, col]) return false;// 이미 뒤집힌 카드 선택X
+        if (isFlipped[row, col]) return false;// 뒤집힌 카드 선택X
         if (row == excludeRow &&
             col == excludeCol) return false;// 첫 번째 카드와 같은 위치 선택X
         return true;// 유효한 입력 반환
